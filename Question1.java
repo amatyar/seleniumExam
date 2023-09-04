@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public class Question1 {
 
@@ -46,6 +47,7 @@ public class Question1 {
 		 {
 			 System.out.println("Test case 2 is failed");
 		 }
+		 
 		 // Test Case 3 Select orange a radio button and asset whether it is checked
 		 
 		 dr.get("http://www.webdriveruniversity.com/Dropdown-Checkboxes-RadioButtons/index.html");
@@ -57,8 +59,10 @@ public class Question1 {
 			 System.out.println("Radio Button: "+ linkes.get(j).getAttribute("value"));
 		 }
 			 
-	 WebElement isSelected1 = dr.findElement(By.cssSelector("#radio-buttons > input[type=radio]:nth-child(7)"));
-			 boolean x = isSelected1.isSelected();
+	 WebElement orange = dr.findElement(By.cssSelector("#radio-buttons > input[type=radio]:nth-child(7)"));
+	 			
+				orange.click();
+			 boolean x = orange.isSelected();
 			 if(x) 
 			 {
 				 System.out.println("Test case 3 is passed.");
@@ -69,17 +73,20 @@ public class Question1 {
 			 }
 			
 			 // Test case 4 From first Drop down select python and assert
+			 
+			 String expected = "Python";
 			 dr.get("http://www.webdriveruniversity.com/Dropdown-Checkboxes-RadioButtons/index.html");
-			 WebElement select = dr.findElement(By.xpath("//*[@id=\"dropdowm-menu-1\"]/option[3]"));
+			 Select Py = new Select(dr.findElement(By.cssSelector("#dropdowm-menu-1 ")));
+			 Py.selectByVisibleText("Python");
 			
-			 boolean y = select.isSelected();
-			 if(y) {
-				 System.out.println("Test case 4 is passed");
-			 }
-			 else 
-			 {
-				 System.out.println("Test case 4 is failed");
-			 }
+			  String Actual = dr.getTitle();
+			  if(ExceptedTitle.equals(ActualTitle)) {
+					System.out.println("Test case 4 passed");
+				}
+				else
+				{
+					System.out.println("Test case 4 failed");
+				}
 			 
 			 //Test case 5 Validate the heading of the page
 			 WebElement head = dr.findElement(By.cssSelector("h1"));
