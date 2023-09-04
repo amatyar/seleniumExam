@@ -90,6 +90,8 @@ public class Question1 {
 			 
 			 //Test case 5 Validate the heading of the page
 			 WebElement head = dr.findElement(By.cssSelector("h1"));
+			 String headtx = head.getText();
+			 System.out.println(headtx);
 				boolean a= head.isDisplayed();
 				if(a) {
 					System.out.println("Test case 5 is passed and validate");
@@ -99,6 +101,7 @@ public class Question1 {
 				{
 					System.out.println("Test case 5 is failed");
 				}
+				
 	}
 	
 	
