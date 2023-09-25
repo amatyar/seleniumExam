@@ -32,14 +32,15 @@ public class Question1 {
 		//Test Case 2 select all the check boxes and asset whether it is checked
 		dr.get("http://www.webdriveruniversity.com/Dropdown-Checkboxes-RadioButtons/index.html");
 		 List <WebElement> AllCheckBoxes = dr.findElements(By.xpath("//input[@type='checkbox']"));
-		  System.out.println("Number of Check boxes : "+ Integer.toString(AllCheckBoxes.size()));
+		    System.out.println("Number of Check boxes : "+ Integer.toString(AllCheckBoxes.size()));
 		         
 		    for(WebElement cb:AllCheckBoxes)
 		    {
 		        cb.click();
 		    }
-		    System.out.println("All check boxes have been checked");		 
+		    System.out.println("All check boxes have been checked");
 		 
+		 System.out.println("total :" + AllCheckBoxes .size());
 		 for(int i =0; i < AllCheckBoxes .size(); i++)
 		 {
 			 System.out.println("Check boxes :"+AllCheckBoxes .get(i).getAttribute("value"));
